@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{style.css}" rel="stylesheet" type="text/css"/>
+    <script th:src="@{main.js}"></script>
+</head>
+<body>
+<h1>Index Page</h1>
+<p th:text="${name}"></p>
+<p th:text="${age}"></p>
+
+<div th:object="${user}">
+    <p th:text="*{name}"></p>
+    <p th:text="*{age}"></p>
+</div>
+
+<p th:text="#{hello}"></p>
+<p th:text="#{welcome}"></p>
+
+<p th:if="${user.age >= 30 }" th:text="${'Nguoi lon'}"></p>
+<p th:unless="${user.age > 20}" th:text="${'Thanh nien'}"></p>
+
+<p th:switch="${weather}">
+    <span th:case="'sunny'" th:text="'di xem phim'"></span>
+    <span th:case="'windy'" th:text="'o nha di ngu'"></span>
+    <span th:case="'storm'" th:text="'di tru'"></span>
+</p>
+
+<ul>
+    <li th:each="name : ${names}">
+        <span th:text="${name}"></span>
+    </li>
+</ul>
+</body>
+</html>
