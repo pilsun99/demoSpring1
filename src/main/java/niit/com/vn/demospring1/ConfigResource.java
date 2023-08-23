@@ -1,4 +1,4 @@
-package niit.com.vn.demospring1.controller;
+package niit.com.vn.demospring1;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

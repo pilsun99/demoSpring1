@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item:${list}">
+      <td th:text="${item.getId()}"></td>
+      <td th:text="${item.getName()}"></td>
+      <td>
+          <a th:href="@{/admin/categories/delete/{id}(id=${item.getId()})}">Delete</a>
+          <a th:href="@{/admin/categories/update/{id}(id=${item.getId()})}">Update</a>
+      </td>
+  </tr>
+  </tbody>
+</table>
+<a th:each="pageNumber : ${#numbers.sequence(1,totalPage+1)}" th:text="${pageNumber}" th:href="@{/admin/categories/(page=${pageNumber})}"></a>
+</body>
+</html>
